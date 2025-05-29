@@ -8,13 +8,13 @@ function HomePage() {
     const [search, setSearch] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:8080/rest-api/books").then((res) => res.json()).then(setBooks);
-        fetch("http://localhost:8080/rest-api/members").then((res) => res.json()).then(setMembers);
+        fetch("http://thomasariyanto.com:8080/rest-api/books").then((res) => res.json()).then(setBooks);
+        fetch("http://thomasariyanto.com:8080/rest-api/members").then((res) => res.json()).then(setMembers);
     }, []);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
-            fetch(`http://localhost:8080/rest-api/borrow?search=${search}`)
+            fetch(`http://thomasariyanto.com:8080/rest-api/borrow?search=${search}`)
                 .then((res) => res.json())
                 .then(setBorrowedBooks);
         }, 300);
@@ -26,7 +26,7 @@ function HomePage() {
     }, [search]);
 
     const refreshBorrowedBooks = () => {
-        fetch(`http://localhost:8080/rest-api/borrow?search=${search}`)
+        fetch(`http://thomasariyanto.com:8080/rest-api/borrow?search=${search}`)
             .then((res) => res.json())
             .then(setBorrowedBooks);
     };

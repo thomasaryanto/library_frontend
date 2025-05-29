@@ -5,7 +5,7 @@ function BooksPage() {
     const [authors, setAuthors] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/rest-api/authors")
+        fetch("http://thomasariyanto.com:8080/rest-api/authors")
             .then((res) => res.json())
             .then(setAuthors);
     }, []);

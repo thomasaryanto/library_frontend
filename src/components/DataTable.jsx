@@ -23,7 +23,7 @@ function DataTable({
     }, [data, endpoint]);
 
     const fetchData = () => {
-        fetch(`http://localhost:8080/rest-api/${endpoint}`)
+        fetch(`http://thomasariyanto.com:8080/rest-api/${endpoint}`)
             .then((res) => res.json())
             .then(setItems);
     };
@@ -35,8 +35,8 @@ function DataTable({
     const handleSubmit = () => {
         const method = editId ? "PUT" : "POST";
         const url = editId
-            ? `http://localhost:8080/rest-api/${endpoint}/${editId}`
-            : `http://localhost:8080/rest-api/${endpoint}`;
+            ? `http://thomasariyanto.com:8080/rest-api/${endpoint}/${editId}`
+            : `http://thomasariyanto.com:8080/rest-api/${endpoint}`;
 
         const bodyData = transformBeforeSubmit(form);
 
@@ -64,7 +64,7 @@ function DataTable({
         const confirmed = window.confirm("Are you sure want to delete? All item related with this data will be deleted too!");
         if (!confirmed) return;
 
-        fetch(`http://localhost:8080/rest-api/${endpoint}/${id}`, {
+        fetch(`http://thomasariyanto.com:8080/rest-api/${endpoint}/${id}`, {
             method: "DELETE",
         }).then(() => {
             if (!data) {
